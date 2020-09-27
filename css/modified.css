@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&family=Poppins:wght@100;300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+
+  --main-heading-color: #e1f1de;
+  --body-bg-color: rgba(32, 17, 46, 0.884);
+  --gradient-color: linear-gradient(0deg, #2c6975, #68b2a0);
+  --slider-color: #cde0c9;
+  --slider-thumb-color: #f8996f;
+  --algo-btn-color: #6b4a60;
+  --algo-btn-selected: #f1c122;
+  --algo-btn-unselected: #6b4a60;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg-color);
+  width: 100vw;
+  height: 100vh;
+  min-width: 500px;
+}
+
+/* grid container */
+.container {
+  display: grid;
+  grid-template-columns: 250px calc(100vw - 250px);
+  grid-template-rows: 15vh 15vh 70vh;
+  grid-template-areas:
+    "header header"
+    "buttons controls"
+    "buttons chart";
+}
+
+/* header */
+.container header {
+  grid-area: header;
+  padding-left: 1.5rem;
+  padding-top: 2rem;
+  color: var(--main-heading-color);
+}
+
+/* main heading */
+.container header > h1 {
+  font-size: 4rem;
+}
+
+/* input controls container */
+.container .input-controls {
+  grid-area: controls;
+  display: flex;
+  flex-flow: coloumn wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.container .input-controls > div {
+  grid-area: controls;
+  width: 30%;
+  color: var(--main-heading-color);
+  font-size: 20px;
+}
+
+/* range slider */
+.container .input-controls input {
+  width: 80%;
+}
+
+/* menu container containing algorithms options*/
+.container .menu {
+  grid-area: buttons;
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+  padding-right: 1rem;
+  align-items: center;
+  height: 100%;
+}
+
+/* .container .menu h3 {
+  font-size: 20px;
+  padding-left: 8px;
+  margin-bottom: 2rem;
+} */
+
+.container .menu button {
+  width: 210px;
+  height: 6vh;
+  border: none;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* for algo buttons */
+.container .menu .algo {
+  background-color: var(--algo-btn-color);
+  margin: 8px 0;
+  padding: 10px 8px;
+  color: var(--main-heading-color);
+}
+
+/* style "generate array button" */
+.generate {
+  margin: 3rem auto;
+  background-color: #d7d7df;
+  color: var(--body-bg-color);
+  padding: 10px 8px;
+}
+
+.menu .algo:hover {
+  background-color: #e0acbcb7;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.generate:hover {
+  background-color: gray;
+  color: white;
+}
+
+.generate:active,
+.algo:focus,
+.algo:active {
+  background: #d7d7df;
+  outline: none;
+  color: #5e5e80;
+}
+
+/* style applied to all buttons except one which is selected */
+.butt_locked {
+  color: white;
+  height: 6vh;
+  margin: 8px 0;
+  padding: 10px 8px;
+  float: left;
+  left: 10px;
+}
+
+.butt_selected {
+  background: var(--algo-btn-selected);
+  color: white;
+  margin: 8px 0;
+  padding: 10px 8px;
+}
+
+.generate_locked {
+  background: rgb(126, 126, 126);
+  color: white;
+  margin: 3rem 0px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.butt_unselected {
+  background: var(--algo-btn-unselected);
+  color: white;
+  float: left;
+  margin: 8px 0;
+  padding: 10px 8px;
+}
+
+/* visualization chart */
+div.chart {
+  grid-area: chart;
+  background: #f5f5f5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* left: 180px; */
+  width: 95%;
+  height: 90%;
+  margin-left: 1rem;
+  /* overflow: hidden; */
+}
+
+@media only screen and (max-width: 600px) {
+  .chart {
+    width: 62%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .chart {
+    width: 67%;
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background-color: var(--slider-color);
+  outline: none;
+  border-radius: 10px;
+  opacity: 0.9;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f8996f;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+  body {
+    font-size: 10px;
+  }
+}
